@@ -1,0 +1,22 @@
+.projects-container {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+  color: white;
+}
+
+.projects-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projects-content h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.projects-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
