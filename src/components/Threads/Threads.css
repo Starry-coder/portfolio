@@ -1,0 +1,9 @@
+.threads-container {
+  position: absolute;
+  top: 17%;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  z-index: 8;
+  pointer-events: none;
+}
