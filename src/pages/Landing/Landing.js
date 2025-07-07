@@ -1,53 +1,61 @@
 import React from 'react';
 import './Landing.css';
+import { DotGrid } from '../../components';
+import ShapeBlur from '../../components/ShapeBlur/ShapeBlur';
+import BlurText from '../../components/BlurText/BlurText';
 
 const Landing = () => {
   return (
     <div className="landing-container">
+      {/* Background DotGrid */}
+      <DotGrid
+          dotSize={3}
+          gap={25}
+          baseColor="#404040"
+          activeColor="#42FF62"
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={3}
+      />
+      
+      {/* Content Overlay */}
       <div className="landing-content">
-        <div className="hero-section">
-          <h1 className="hero-title">Welcome to My Portfolio</h1>
-          <p className="hero-subtitle">
-            I'm a passionate developer creating amazing digital experiences
-          </p>
-          <div className="hero-buttons">
-            <button className="btn btn-primary">View My Work</button>
-            <button className="btn btn-secondary">Contact Me</button>
+        <div className="hero-left">
+          <div className="hero-title-container">
+            <span className="hero-title-text">
+              &gt; aryan_kumar:~$ ./portfolio
+            </span>
           </div>
+          <BlurText
+            text="Initializing... Web Developer | Cybersecurity Enthusiast | Problem Solver"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="hero-subtitle-blur mb-8"
+          />
+          <p className='hero-prompt'>
+            &gt;&gt; Press [Enter] to continue...
+          </p>
         </div>
         
-        <div className="intro-section">
-          <div className="intro-text">
-            <h2>Hello, I'm [Your Name]</h2>
-            <p>
-              A creative and detail-oriented developer with a passion for building 
-              innovative web applications and solving complex problems through code.
-            </p>
-          </div>
-          <div className="intro-image">
+        <div className="hero-right">
+          <div className="photo-frame">
+            <ShapeBlur
+              variation={0}
+              pixelRatioProp={window.devicePixelRatio || 1}
+              shapeSize={1.3}
+              roundness={0.1}
+              borderSize={0.08}
+              circleSize={0.2}
+              circleEdge={1}
+            />
             <img 
-              src="/src/assets/Images/profile-img.png" 
+              src="/profile-img.png" 
               alt="Profile" 
               className="profile-image"
             />
-          </div>
-        </div>
-
-        <div className="skills-preview">
-          <h3>What I Do</h3>
-          <div className="skills-grid">
-            <div className="skill-card">
-              <h4>Frontend Development</h4>
-              <p>React, JavaScript, CSS, HTML</p>
-            </div>
-            <div className="skill-card">
-              <h4>UI/UX Design</h4>
-              <p>Responsive Design, User Experience</p>
-            </div>
-            <div className="skill-card">
-              <h4>Backend Development</h4>
-              <p>Node.js, APIs, Database Design</p>
-            </div>
           </div>
         </div>
       </div>
