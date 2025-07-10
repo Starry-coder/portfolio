@@ -83,7 +83,7 @@ const Landing = () => {
               circleEdge={1}
             />
             <img 
-              src="/profile-img.png" 
+              src="/PROFILE-IMG.png" 
               alt="Profile" 
               className="profile-image"
             />
