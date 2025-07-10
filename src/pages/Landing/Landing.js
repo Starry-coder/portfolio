@@ -43,13 +43,13 @@ const Landing = () => {
           </FuzzyText>
           <FuzzyText 
           className="fuzzy-text-subtitle"
-          baseIntensity={0.15} 
+          baseIntensity={0.02} 
           hoverIntensity={0.3} 
           enableHover={true}
           fontSize="clamp(0.5rem, 1.25vw, 0.9rem)"
           fontWeight={600}
           >
-          200: OK
+          STATUS : 200 (OK)
           </FuzzyText>
         </div>
         <div className="hero-left">
@@ -59,7 +59,8 @@ const Landing = () => {
             </span>
           </div>
           <BlurText
-            text="Initializing...Cybersecurity Enthusiast~Web Developer"
+            text="Initializing..................
+            Cybersecurity_Enthusiast  |  Web_Developer"
             delay={150}
             startDelay={4200}
             animateBy="words"
