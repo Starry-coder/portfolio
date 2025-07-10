@@ -321,7 +321,7 @@
 .fuzzy-text-container {
   position: absolute;
   top: 5%;
-  left: clamp(60px, 4vw, 80px);
+  left: clamp(30px, 2vw, 50px);
   z-index: 25;
   text-align: left;
   display: flex;

@@ -33,20 +33,20 @@ const Landing = () => {
         <div className="fuzzy-text-container">
           <FuzzyText 
           className="fuzzy-text-404"
-          baseIntensity={0.3} 
-          hoverIntensity={0.8} 
+          baseIntensity={0.15} 
+          hoverIntensity={0.4} 
           enableHover={true}
-          fontSize="clamp(2.5rem, 8vw, 5rem)"
+          fontSize="clamp(1.25rem, 4vw, 2.5rem)"
           fontWeight={900}
           >
           portfolio/home
           </FuzzyText>
           <FuzzyText 
           className="fuzzy-text-subtitle"
-          baseIntensity={0.2} 
-          hoverIntensity={0.6} 
+          baseIntensity={0.15} 
+          hoverIntensity={0.3} 
           enableHover={true}
-          fontSize="clamp(1rem, 2.5vw, 1.8rem)"
+          fontSize="clamp(0.5rem, 1.25vw, 0.9rem)"
           fontWeight={600}
           >
           200: OK
@@ -59,8 +59,9 @@ const Landing = () => {
             </span>
           </div>
           <BlurText
-            text="Initializing... Web Developer | Cybersecurity Enthusiast | Problem Solver"
+            text="Initializing...Cybersecurity Enthusiast~Web Developer"
             delay={150}
+            startDelay={4200}
             animateBy="words"
             direction="top"
             className="hero-subtitle-blur mb-8"
