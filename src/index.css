@@ -1,5 +1,13 @@
-body {
+html, body, #root {
+  height: 100%;
+  width: 100%;
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #060010;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +18,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Ensure all page containers take full height */
+.landing-container,
+.about-container,
+.projects-container,
+.contact-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
 }

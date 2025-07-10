@@ -2,25 +2,38 @@
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: #060010;
-  will-change: transform;
-  backface-visibility: hidden;
-  perspective: 1000px;
-  overflow: hidden;
+  color: white;
 }
 
-.landing-content {
+/* Make sure DotGrid is visible */
+.landing-container .dot-grid {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  color: white;
-  padding: min(4vw, 60px) min(6vw, 60px);
-  z-index: 10;
+  z-index: 1;
 }
 
-.hero-left {
+/* Threads positioning */
+.landing-container .threads-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.landing-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: min(4vw, 60px) min(6vw, 60px);
+  z-index: 20;
+}
+
+/* .hero-left {
   position: absolute;
   left: clamp(60px, 4vw, 80px);
   top: 50%;
@@ -43,7 +56,7 @@
   justify-content: center;
   align-items: center;
   z-index: 15;
-}
+} */
 
 .hero-title-container {
   max-width: min(900px, 95vw);
@@ -321,7 +334,7 @@
 .fuzzy-text-container {
   position: absolute;
   top: 5%;
-  left: clamp(30px, 2vw, 50px);
+  left: min(60px, 6vw);
   z-index: 25;
   text-align: left;
   display: flex;

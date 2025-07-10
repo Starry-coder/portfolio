@@ -1,15 +1,79 @@
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #060010;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   pointer-events: none;
+}
+
+/* Make sure DotGrid is visible but behind content */
+.background-container .dot-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Threads positioning behind content */
+.background-container .threads-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Routes container to ensure content stays above background */
+.App > div:not(.background-container) {
+  position: relative;
+  z-index: 10;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

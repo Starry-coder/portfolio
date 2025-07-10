@@ -1,34 +1,11 @@
 import React from 'react';
 import './Landing.css';
-import { DotGrid } from '../../components';
 import ShapeBlur from '../../components/ShapeBlur/ShapeBlur';
 import BlurText from '../../components/BlurText/BlurText';
-import Threads from '../../components/Threads/Threads';
 import FuzzyText from '../../components/FuzzyText/FuzzyText';
-
 const Landing = () => {
   return (
     <div className="landing-container">
-      {/* Background DotGrid */}
-      <DotGrid
-          dotSize={3}
-          gap={25}
-          baseColor="#404040"
-          activeColor="#42FF62"
-          proximity={120}
-          shockRadius={250}
-          shockStrength={5}
-          resistance={750}
-          returnDuration={3}
-      />
-      
-      {/* Content Overlay */}
-      <Threads
-            color={[0.259, 1.0, 0.384]}
-            amplitude={1.8}
-            distance={0.7}
-            enableMouseInteraction={true}
-        />
       <div className="landing-content">
         <div className="fuzzy-text-container">
           <FuzzyText 
