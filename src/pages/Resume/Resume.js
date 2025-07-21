@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import './Contact.css';
+import './Resume.css';
 import FuzzyText from '../../components/FuzzyText/FuzzyText';
 import Navigation from '../../components/Navigation/Navigation';
 
-const Contact = () => {
+const Resume = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="contact-container">
+    <div className="resume-container">
       <Navigation />
-      <div className="contact-content">
+      <div className="resume-content">
         <div className="fuzzy-text-container">
           <FuzzyText 
             className="fuzzy-text-404"
@@ -69,4 +69,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Resume;

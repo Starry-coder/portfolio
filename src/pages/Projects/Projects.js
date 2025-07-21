@@ -1,23 +1,12 @@
 import React from 'react';
 import './Projects.css';
 import FuzzyText from '../../components/FuzzyText/FuzzyText';
-import { DotGrid } from '../../components';
+import Navigation from '../../components/Navigation/Navigation';
 
 const Projects = () => {
   return (
     <div className="projects-container">
-      {/* Background DotGrid */}
-      <DotGrid
-        dotSize={3}
-        gap={25}
-        baseColor="#404040"
-        activeColor="#42FF62"
-        proximity={120}
-        shockRadius={250}
-        shockStrength={5}
-        resistance={750}
-        returnDuration={3}
-      />
+      <Navigation />
       <div className="projects-content">
         <div className="fuzzy-text-container">
           <FuzzyText 

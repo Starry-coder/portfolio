@@ -3,9 +3,11 @@ import './Landing.css';
 import ShapeBlur from '../../components/ShapeBlur/ShapeBlur';
 import BlurText from '../../components/BlurText/BlurText';
 import FuzzyText from '../../components/FuzzyText/FuzzyText';
+import Navigation from '../../components/Navigation/Navigation';
 const Landing = () => {
   return (
     <div className="landing-container">
+      <Navigation />
       <div className="landing-content">
         <div className="fuzzy-text-container">
           <FuzzyText 
