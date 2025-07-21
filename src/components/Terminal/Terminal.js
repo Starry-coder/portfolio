@@ -103,7 +103,10 @@ const Terminal = ({ isActive, onClose }) => {
     exit: {
       description: 'Close terminal',
       action: () => {
-        onClose();
+        // Close terminal after a small delay to show the message
+        setTimeout(() => {
+          onClose();
+        }, 500);
         return ['Terminal closed.'];
       }
     }
@@ -150,6 +153,9 @@ const Terminal = ({ isActive, onClose }) => {
   };
 
   const handleKeyDown = (e) => {
+    // Stop propagation to prevent the landing page Enter listener from firing
+    e.stopPropagation();
+    
     if (e.key === 'Enter') {
       executeCommand(command);
     } else if (e.key === 'ArrowUp') {
@@ -175,33 +181,57 @@ const Terminal = ({ isActive, onClose }) => {
       setTerminalHistory([
         { type: 'output', content: ['Terminal initialized successfully.', 'Type "help" for available commands.', ''] }
       ]);
-      setTimeout(() => {
+      // Auto-focus with a small delay to ensure terminal is rendered
+      const focusTimer = setTimeout(() => {
         if (inputRef.current) {
           inputRef.current.focus();
         }
-      }, 100);
+      }, 200);
+      
+      return () => clearTimeout(focusTimer);
     }
   }, [isActive]);
 
-  // Auto-focus terminal input when activated
+  // Auto-focus terminal input when activated and keep focus
   useEffect(() => {
     if (isActive && inputRef.current) {
-      inputRef.current.focus();
+      const focusInput = () => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      };
+      
+      // Initial focus
+      focusInput();
+      
+      // Re-focus if user clicks elsewhere
+      const handleClick = (e) => {
+        if (isActive && !e.target.closest('.terminal-container')) {
+          focusInput();
+        }
+      };
+      
+      document.addEventListener('click', handleClick);
+      return () => document.removeEventListener('click', handleClick);
     }
   }, [isActive]);
 
   if (!isActive) return null;
 
   return (
-    <div className="terminal-container">
-      <div className="terminal-header">
-        <div className="terminal-controls">
-          <span className="terminal-dot red"></span>
-          <span className="terminal-dot yellow"></span>
-          <span className="terminal-dot green"></span>
+    <div 
+      className="terminal-overlay"
+      onKeyDown={(e) => e.stopPropagation()}
+    >
+      <div className="terminal-container" onKeyDown={(e) => e.stopPropagation()}>
+        <div className="terminal-header">
+          <div className="terminal-controls">
+            <span className="terminal-dot red" onClick={onClose}></span>
+            <span className="terminal-dot yellow"></span>
+            <span className="terminal-dot green"></span>
+          </div>
+          <span className="terminal-title">aryan@portfolio:~</span>
         </div>
-        <span className="terminal-title">aryan@portfolio:~</span>
-      </div>
       
       <div className="terminal-body">
         <div className="terminal-history">
@@ -233,6 +263,7 @@ const Terminal = ({ isActive, onClose }) => {
           <span className="terminal-cursor"></span>
         </div>
       </div>
+    </div>
     </div>
   );
 };

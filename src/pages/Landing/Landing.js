@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Landing.css';
 import ShapeBlur from '../../components/ShapeBlur/ShapeBlur';
 import BlurText from '../../components/BlurText/BlurText';
@@ -15,6 +15,26 @@ const Landing = () => {
   const closeTerminal = () => {
     setTerminalActive(false);
   };
+
+  // Handle Enter key press to activate terminal
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      // Only activate terminal if:
+      // 1. Terminal is not active
+      // 2. Enter key is pressed
+      // 3. Target is not an input field or terminal element
+      if (event.key === 'Enter' && 
+          !terminalActive && 
+          !event.target.closest('.terminal-container') &&
+          event.target.tagName !== 'INPUT') {
+        event.preventDefault();
+        activateTerminal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [terminalActive]);
 
   return (
     <div className="landing-container">

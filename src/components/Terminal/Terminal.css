@@ -1,4 +1,12 @@
 /* Terminal Styles */
+.terminal-overlay {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
 .terminal-container {
   width: 100%;
   max-width: 600px;
@@ -45,6 +53,11 @@
 
 .terminal-dot.red {
   background: #ff5f56;
+  cursor: pointer;
+}
+
+.terminal-dot.red:hover {
+  background: #ff3b30;
 }
 
 .terminal-dot.yellow {
