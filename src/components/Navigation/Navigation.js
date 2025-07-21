@@ -13,14 +13,18 @@ const Navigation = () => {
     { path: '/resume', label: 'Resume' }
   ];
 
+  // Filter out the current page from navigation items
+  const visibleNavItems = navItems.filter(item => item.path !== location.pathname);
+
   return (
     <nav className="navigation">
       <div className="nav-container">
-        {navItems.map((item) => (
+        {visibleNavItems.map((item, index) => (
           <button
             key={item.path}
-            className={`nav-button ${location.pathname === item.path ? 'active' : ''}`}
+            className="nav-button"
             onClick={() => navigate(item.path)}
+            style={{ animationDelay: `${index * 0.1}s` }}
           >
             {item.label}
           </button>

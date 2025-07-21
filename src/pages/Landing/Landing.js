@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Landing.css';
 import ShapeBlur from '../../components/ShapeBlur/ShapeBlur';
 import BlurText from '../../components/BlurText/BlurText';
 import FuzzyText from '../../components/FuzzyText/FuzzyText';
 import Navigation from '../../components/Navigation/Navigation';
+import Terminal from '../../components/Terminal/Terminal';
 const Landing = () => {
+  const [terminalActive, setTerminalActive] = useState(false);
+
+  const activateTerminal = () => {
+    setTerminalActive(true);
+  };
+
+  const closeTerminal = () => {
+    setTerminalActive(false);
+  };
+
   return (
     <div className="landing-container">
       <Navigation />
@@ -46,9 +57,17 @@ const Landing = () => {
             direction="top"
             className="hero-subtitle-blur mb-8"
           />
-          <p className='hero-prompt'>
-            &gt;&gt; Press [Enter] to continue...
-          </p>
+          
+          {!terminalActive ? (
+            <p className='hero-prompt' onClick={activateTerminal}>
+              &gt;&gt; Press [Enter] to continue...
+            </p>
+          ) : (
+            <Terminal 
+              isActive={terminalActive}
+              onClose={closeTerminal}
+            />
+          )}
         </div>
         
         <div className="hero-right">

@@ -352,3 +352,26 @@
   line-height: 1;
   opacity: 0.9;
 }
+
+/* Terminal Styles */
+.hero-prompt {
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+  color: #42FF62;
+  opacity: 0.8;
+  margin-top: clamp(0.5rem, 2vh, 1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: blink 1.5s infinite;
+}
+
+.hero-prompt:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(66, 255, 98, 0.5);
+  transform: scale(1.05);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 0.8; }
+  51%, 100% { opacity: 0.3; }
+}
